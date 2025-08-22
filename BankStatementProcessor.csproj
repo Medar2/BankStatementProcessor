@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <ItemGroup>
+    <Content Include="$(IntermediateOutputPath)runtimes/osx-x64/native/Magick.Native-Q16-x64.dll.dylib" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="$(IntermediateOutputPath)runtimes/osx-arm64/native/Magick.Native-Q16-arm64.dll.dylib" CopyToOutputDirectory="PreserveNewest" />
+    <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="13.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SQLite" Version="8.0.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
+    <PackageReference Include="PdfPig" Version="0.1.8" />
+    <PackageReference Include="Tesseract" Version="5.0.0-alpha20201127" />
+  </ItemGroup>
+
+</Project>

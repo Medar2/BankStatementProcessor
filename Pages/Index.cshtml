@@ -1,0 +1,54 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Cargar Data";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h1 class="text-center mb-4 display-4">Procesar Datos</h1>
+        <p class="text-center text-muted mb-5">Cargue un documento (PDF o imagen) para extraer y visualizar las transacciones.</p>
+
+        <form method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label fw-bold">Tipo de Documento:</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="pdf" name="documentType" value="pdf" checked>
+                    <label class="form-check-label" for="pdf">PDF</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="image" name="documentType" value="image">
+                    <label class="form-check-label" for="image">Imagen</label>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="bankName" class="form-label fw-bold">Banco:</label>
+                <select class="form-select" id="bankName" name="bankName" required>
+                    <option value="">-- Seleccione un Banco --</option>
+                    <option value="Popular">Banco Popular</option>
+                    <option value="BHDLeon">Banco BHD León</option>
+                    <option value="Banreservas">Banreservas</option>
+                    <!-- Añadir más bancos según sea necesario -->
+                </select>
+                <div class="invalid-feedback">Por favor, seleccione un banco.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="accountNumber" class="form-label fw-bold">Número de Cuenta:</label>
+                <input type="text" class="form-control" id="accountNumber" name="accountNumber" placeholder="Ingrese el número de cuenta" required>
+                <div class="invalid-feedback">Por favor, ingrese el número de cuenta.</div>
+            </div>
+
+            <div class="mb-4">
+                <label for="file" class="form-label fw-bold">Cargar Documento:</label>
+                <input type="file" class="form-control" id="file" name="file" accept=".pdf,.jpg,.jpeg,.png" required>
+                <div class="invalid-feedback">Por favor, cargue un documento (PDF o imagen).</div>
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary btn-lg">Cargar y Procesar</button>
+            </div>
+        </form>
+    </div>
+</div>
